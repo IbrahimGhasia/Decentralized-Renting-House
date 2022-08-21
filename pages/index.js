@@ -122,10 +122,11 @@ export default function Home() {
 
     const handleSubmitSuccess = async (tx) => {
         await tx.wait(1)
+        const booking_id = await getBookingId()
         dispatch({
             type: "success",
             title: "Transaction Complete",
-            message: "Property Booked!",
+            message: `Property Booked! \n Your Booking ID: ${booking_id.toString()}`,
             position: "bottomL",
             icon: "bell",
         })
